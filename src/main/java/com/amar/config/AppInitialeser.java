@@ -14,8 +14,10 @@ public class AppInitialeser  implements WebApplicationInitializer{
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		
 		AnnotationConfigWebApplicationContext rootContext=new AnnotationConfigWebApplicationContext();
+	//	rootContext.scan("com.amar");
 		
-		rootContext.scan("com.amar");
+		rootContext.register(WebAppConfig.class);
+		
 		rootContext.setServletContext(servletContext);
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 		ServletRegistration.Dynamic servlet=servletContext.addServlet("dispather", new DispatcherServlet(rootContext));
