@@ -2,6 +2,7 @@ package com.amar.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @EnableWebMvc
@@ -10,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  *  and automatically creates and registers default JSON and XML converters.
  */
 @Configuration
-@ComponentScan(basePackages = {"com.amar.controller","com.amar.manager"})
+@ComponentScan(basePackages = {"com.amar.controller","com.amar.service"})
 public class WebAppConfig {
 
 }

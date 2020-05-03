@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.amar.dto.EmployeeDto;
-import com.amar.manager.Employeeservice;
+import com.amar.model.Employee;
+import com.amar.service.EmployeeService;
 
 @RestController // Spring 4 indroduced RestController which is combination of @Controller and @ResponseBody
 public class EmployeeController {
 	
 	
 	@Autowired
-	Employeeservice employeeService;
+	EmployeeService employeeService;
 	
 	@RequestMapping(value="/employee/{id}",produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_XML_VALUE})
-	public EmployeeDto getMessage(@PathVariable Integer id)
+	public Employee getMessage(@PathVariable long id)
 	{
 		
 		return employeeService.getEmployee(id);
